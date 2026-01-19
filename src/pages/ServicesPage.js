@@ -119,7 +119,7 @@ const ServicesPage = () => {
           </ScrollReveal>
           <div className="relative">
             <ScrollReveal delay={0.2}>
-              <h2 className="text-5xl md:text-[6.5rem] glow-text leading-[0.8] mt-16 md:mt-32 z-30 -translate-y-[30px] font-black">{t('services.main_title')}</h2>
+              <h2 className="text-5xl md:text-[6.5rem] glow-text leading-[0.8] mt-16 md:mt-32 z-30 -translate-y-[30px] ">{t('services.main_title')}</h2>
             </ScrollReveal>
             <ScrollReveal className={`absolute ${language === 'ar' ? '-right-10 md:-right-30' : '-left-10 md:-left-30'} top-[60%] md:top-[70%] w-10 h-10 md:w-20 md:h-20 animate-float pointer-events-none z-40`} delay={0.4}>
               <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="Small Rock" className="w-full h-full object-contain brightness-75 rotate-45" />
