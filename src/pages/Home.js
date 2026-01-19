@@ -192,7 +192,7 @@ const Goals = () => {
           <div className="w-[28%] animate-float pointer-events-none z-40">
             <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686175/cccc_irddlo.png" alt="رائد فضاء" className={`w-full h-auto opacity-100 ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
           </div>
-          <h2 className="text-2xl md:text-6xl lg:text-[7rem] text-white glow-text" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+          <h2 className="hidden md:inline-block text-2xl md:text-6xl lg:text-[7rem] text-white glow-text" dir={language === 'ar' ? 'rtl' : 'ltr'}>
             {t('goals.title')}
           </h2>
           <div className="w-[22%] animate-float pointer-events-none z-40" style={{ animationDelay: '1s' }}>
@@ -205,7 +205,7 @@ const Goals = () => {
         </div>
 
         <ScrollReveal className="relative z-30 flex flex-col items-center max-w-3xl pt-0 md:pt-0">
-          <h2 className="text-2xl md:text-6xl lg:text-[7rem] text-white glow-text">
+          <h2 className="hidden md:block text-2xl md:text-6xl lg:text-[7rem] text-white glow-text">
             {t('goals.title')}
           </h2>
           <p className="text-sm md:text-3xl text-white/90 leading-relaxed text-center font-light px-2 md:px-4 max-w-[280px] md:max-w-none mx-auto -mt-12 md:mt-0">
