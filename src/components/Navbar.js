@@ -11,19 +11,15 @@ const Navbar = () => {
 
   const triggerCrack = () => {
     try {
-      // استخدام صوت كسر زجاج احترافي
-      const audio = new Audio('/audio/glass-break.mp3');
-      audio.volume = 0.5;
+      const audio = new Audio('/audio/glass-break.mp3');      audio.volume = 0.4;
       audio.currentTime = 0;
-      audio.play().catch(() => {
-        // Autoplay might be blocked or network error, ignore silently
-      });
+      audio.play().catch(() => {});
     } catch (e) {
-      console.warn("Audio playback not supported or blocked", e);
+      console.warn("Audio error", e);
     }
 
     setIsCracked(true);
-    setTimeout(() => setIsCracked(false), 800);
+    setTimeout(() => setIsCracked(false), 1000);
     setIsMenuOpen(false);
   };
 
@@ -38,28 +34,69 @@ const Navbar = () => {
     { name: t('service.marketing'), path: '/services/marketing' },
   ];
 
+  // كود SVG للتكسير مرسوم يدوياً ليحاكي شكل الصورة المطلوبة
+  const GlassCrackSVG = () => (
+    <svg viewBox="0 0 400 100" className="absolute inset-0 w-full h-full pointer-events-none z-50 overflow-visible crack-animation">
+      <g stroke="white" strokeWidth="0.5" fill="none" strokeLinecap="round" opacity="0.8">
+        {/* النقطة المركزية للتصادم */}
+        <circle cx="200" cy="50" r="1.5" fill="white" />
+        
+        {/* الخطوط الشعاعية الرئيسية */}
+        <path d="M200,50 L150,20 L100,5" />
+        <path d="M200,50 L140,80 L80,95" />
+        <path d="M200,50 L250,10 L320,0" />
+        <path d="M200,50 L270,75 L350,90" />
+        <path d="M200,50 L200,0" />
+        <path d="M200,50 L200,100" />
+        <path d="M200,50 L50,50" />
+        <path d="M200,50 L350,50" />
+        
+        {/* تفرعات صغيرة وتكسيرات عنكبوتية */}
+        <path d="M175,35 L160,45 L150,40" />
+        <path d="M225,35 L240,45 L250,40" />
+        <path d="M180,65 L170,75 L155,70" />
+        <path d="M220,65 L230,75 L245,70" />
+        
+        {/* دوائرFracture حول المركز */}
+        <path d="M180,50 Q180,30 200,30 Q220,30 220,50 Q220,70 200,70 Q180,70 180,50" strokeDasharray="2,2" />
+        <path d="M160,50 Q160,10 200,10 Q240,10 240,50 Q240,90 200,90 Q160,90 160,50" strokeDasharray="4,2" />
+        
+        {/* خطوط عشوائية إضافية لزيادة الواقعية */}
+        <path d="M120,15 L110,25" />
+        <path d="M280,15 L290,25" />
+        <path d="M120,85 L110,75" />
+        <path d="M280,85 L290,75" />
+      </g>
+    </svg>
+  );
+
   return (
     <header className="fixed top-0 left-0 w-full z-[100] px-4 md:px-10 py-4 md:py-7 flex items-center justify-between pointer-events-none">
       
       <style>{`
         @keyframes shake {
           0% { transform: translate(1px, 1px) rotate(0deg); }
+          10% { transform: translate(-2px, -1px) rotate(-0.5deg); }
           20% { transform: translate(-3px, 0px) rotate(1deg); }
+          30% { transform: translate(3px, 2px) rotate(0deg); }
           40% { transform: translate(1px, -1px) rotate(1deg); }
+          50% { transform: translate(-1px, 2px) rotate(-0.5deg); }
           60% { transform: translate(-3px, 1px) rotate(0deg); }
+          70% { transform: translate(3px, 1px) rotate(-0.5deg); }
           80% { transform: translate(-1px, -1px) rotate(1deg); }
+          90% { transform: translate(1px, 2px) rotate(0deg); }
           100% { transform: translate(0, 0) rotate(0deg); }
         }
         .animate-shake {
-          animation: shake 0.3s cubic-bezier(.36,.07,.19,.97) both;
+          animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
         }
-        .crack-appear {
-          animation: fade-in-out 0.8s forwards;
+        .crack-animation {
+          animation: crack-fade 1s forwards ease-out;
         }
-        @keyframes fade-in-out {
-          0% { opacity: 0; transform: scale(0.8); }
-          10% { opacity: 1; transform: scale(1.05); }
-          80% { opacity: 1; transform: scale(1); }
+        @keyframes crack-fade {
+          0% { opacity: 0; transform: scale(0.5); }
+          5% { opacity: 1; transform: scale(1); }
+          70% { opacity: 1; transform: scale(1); }
           100% { opacity: 0; transform: scale(1.1); }
         }
       `}</style>
@@ -79,15 +116,7 @@ const Navbar = () => {
       <nav 
         className={`hidden lg:flex items-center glass-nav px-8 py-3 rounded-full gap-8 transition-all relative pointer-events-auto ${isCracked ? 'animate-shake' : ''}`}
       >
-        <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none z-0">
-          {isCracked && (
-            <img 
-              src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768853744/glass_crack_k8s2n2.png" 
-              className="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-screen crack-appear" 
-              alt="glass crack effect"
-            />
-          )}
-        </div>
+        {isCracked && <GlassCrackSVG />}
 
         <Link 
           to="/" 
@@ -168,10 +197,6 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 bg-[#080911] z-[110] lg:hidden flex flex-col items-center overflow-y-auto py-20 px-10 transition-transform duration-500 pointer-events-auto ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
-        <div className="absolute inset-0 z-0">
-             <div className="absolute inset-0 bg-black/40"></div>
-        </div>
-
         <button 
           onClick={() => setIsMenuOpen(false)}
           className="fixed top-6 right-6 w-12 h-12 bg-white/10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all cursor-pointer z-[120]"
