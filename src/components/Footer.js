@@ -7,7 +7,7 @@ const Footer = () => {
   
   return (
     // تم إضافة z-[20] ليكون فوق تأثير النجوم و bg-[#080911] ليكون معتماً تماماً
-    <footer className="relative z-[20] w-full min-h-[105vh] flex items-end pb-12 px-10 md:px-20 overflow-hidden">
+    <footer className="relative z-[20] w-full min-h-[109vh] flex items-end pb-12 px-10 md:px-20 overflow-hidden">
       
       {/* خلفية الفوتر - تم جعل الصورة opacity-100 لحجب النجوم خلفها */}
       <div className="absolute inset-0 z-0">

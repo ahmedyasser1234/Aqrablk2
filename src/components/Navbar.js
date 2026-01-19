@@ -11,17 +11,19 @@ const Navbar = () => {
 
   const triggerCrack = () => {
     try {
-      // تم تحديث رابط الصوت إلى صوت كسر زجاج مباشر
-      const audio = new Audio('https://cdn.pixabay.com/audio/2024/02/09/audio_249257d057.mp3');
+      // استخدام صوت كسر زجاج احترافي
+      const audio = new Audio('/audio/glass-break.mp3');
       audio.volume = 0.5;
       audio.currentTime = 0;
-      audio.play().catch(() => {});
+      audio.play().catch(() => {
+        // Autoplay might be blocked or network error, ignore silently
+      });
     } catch (e) {
-      console.warn("Audio playback blocked", e);
+      console.warn("Audio playback not supported or blocked", e);
     }
 
     setIsCracked(true);
-    setTimeout(() => setIsCracked(false), 1000); // زيادة الوقت قليلاً لظهور الصورة
+    setTimeout(() => setIsCracked(false), 800);
     setIsMenuOpen(false);
   };
 
@@ -41,23 +43,24 @@ const Navbar = () => {
       
       <style>{`
         @keyframes shake {
-          0% { transform: translate(1px, 1px); }
-          20% { transform: translate(-3px, 0px); }
-          40% { transform: translate(1px, -1px); }
-          60% { transform: translate(-3px, 1px); }
-          100% { transform: translate(0, 0); }
+          0% { transform: translate(1px, 1px) rotate(0deg); }
+          20% { transform: translate(-3px, 0px) rotate(1deg); }
+          40% { transform: translate(1px, -1px) rotate(1deg); }
+          60% { transform: translate(-3px, 1px) rotate(0deg); }
+          80% { transform: translate(-1px, -1px) rotate(1deg); }
+          100% { transform: translate(0, 0) rotate(0deg); }
         }
         .animate-shake {
-          animation: shake 0.2s ease-in-out infinite;
+          animation: shake 0.3s cubic-bezier(.36,.07,.19,.97) both;
         }
-        @keyframes crack-appear {
-          0% { transform: scale(0.5); opacity: 0; }
-          10% { transform: scale(1.2); opacity: 1; }
-          100% { transform: scale(1); opacity: 1; }
+        .crack-appear {
+          animation: fade-in-out 0.8s forwards;
         }
-        .crack-img-effect {
-          animation: crack-appear 0.3s forwards;
-          filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+        @keyframes fade-in-out {
+          0% { opacity: 0; transform: scale(0.8); }
+          10% { opacity: 1; transform: scale(1.05); }
+          80% { opacity: 1; transform: scale(1); }
+          100% { opacity: 0; transform: scale(1.1); }
         }
       `}</style>
 
@@ -76,13 +79,12 @@ const Navbar = () => {
       <nav 
         className={`hidden lg:flex items-center glass-nav px-8 py-3 rounded-full gap-8 transition-all relative pointer-events-auto ${isCracked ? 'animate-shake' : ''}`}
       >
-        <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none z-0 flex items-center justify-center">
+        <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none z-0">
           {isCracked && (
-            // تم استبدال الـ SVG بصورة التكسير التي طلبتها
             <img 
-              src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768852391/crack_r0m90d.png" 
-              className="w-full h-full object-cover crack-img-effect opacity-80" 
-              alt="broken glass"
+              src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768853744/glass_crack_k8s2n2.png" 
+              className="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-screen crack-appear" 
+              alt="glass crack effect"
             />
           )}
         </div>
@@ -137,7 +139,7 @@ const Navbar = () => {
         <Link to="/contact" onClick={() => { triggerCrack(); setIsDiscoverOpen(false); }} className={`text-base font-medium hover:text-blue-400 transition-colors relative z-10 ${location.pathname === '/contact' ? 'text-blue-400' : 'text-white'}`}>{t('nav.contact')}</Link>
       </nav>
 
-      {/* باقي الكود كما هو تماماً */}
+      {/* Right Section */}
       <div className="flex items-center gap-2 md:gap-6 md:me-12 pointer-events-auto">
         <div 
           onClick={toggleLanguage}
@@ -166,6 +168,10 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 bg-[#080911] z-[110] lg:hidden flex flex-col items-center overflow-y-auto py-20 px-10 transition-transform duration-500 pointer-events-auto ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
+        <div className="absolute inset-0 z-0">
+             <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+
         <button 
           onClick={() => setIsMenuOpen(false)}
           className="fixed top-6 right-6 w-12 h-12 bg-white/10 border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all cursor-pointer z-[120]"
