@@ -6,10 +6,8 @@ const Footer = () => {
   const { t, language } = useLanguage();
   
   return (
-    // تم إضافة z-[20] ليكون فوق تأثير النجوم و bg-[#080911] ليكون معتماً تماماً
     <footer className="relative z-[20] w-full min-h-[109vh] flex items-end pb-12 px-10 md:px-20 overflow-hidden">
       
-      {/* خلفية الفوتر - تم جعل الصورة opacity-100 لحجب النجوم خلفها */}
       <div className="absolute inset-0 z-0">
         <img 
           src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686133/footer_cz659n.png" 
@@ -17,7 +15,6 @@ const Footer = () => {
           className={`w-full h-full object-cover object-bottom opacity-100 ${language === 'en' ? 'scale-x-[-1]' : ''}`}
           onError={(e) => { e.target.style.display = 'none'; }}
         />
-        {/* تدرج علوي ليختفي الفوتر تدريجياً مع السكاشن التي فوقه */}
         <div className="absolute inset-0  via-transparent to-transparent opacity-90 h-64"></div>
       </div>
 
@@ -61,8 +58,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* الروابط */}
-        <div className={`w-full md:w-1/3 flex flex-col items-center gap-2 md:gap-3 order-1 ${
+        {/* الروابط - تم إضافة hidden لإخفائها في الموبايل و md:flex لإظهارها في الشاشات الكبيرة */}
+        <div className={`hidden md:flex w-full md:w-1/3 flex-col items-center gap-2 md:gap-3 order-1 ${
           language === 'ar' ? 'md:order-1 md:items-start md:text-start' : 'md:order-3 md:items-end md:text-end'
         }`}>
           <Link to="/" className="text-lg md:text-2xl font-bold text-white hover:text-blue-400 transition-all glow-text">{t('nav.home')}</Link>
