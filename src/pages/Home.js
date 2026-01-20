@@ -16,8 +16,10 @@ const AdaptiveReveal = ({ children, ...props }) => {
   }, []);
 
   if (isMobile) {
+    // على الموبايل يرجع العناصر فوراً داخل div عادي للحفاظ على الكلاسات بدون أنيميشن
     return <div className={props.className}>{children}</div>;
   }
+  // على الديسكتوب يرجع المكون الأصلي بتأثيراته
   return <ScrollReveal {...props}>{children}</ScrollReveal>;
 };
 
@@ -78,7 +80,7 @@ const Hero = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <section className="relative min-h-[60vh] md:min-h-screen flex flex-col items-center justify-center px-6 pt-16 md:pt-16 overflow-x-hidden">
+      <section className="relative min-h-[60vh] md:min-h-screen flex flex-col items-center justify-center px-6 pt-16 md:pt-16 overflow-hidden">
         <div className="relative z-10 w-full max-w-5xl flex flex-col items-center">
           <div className="flex flex-col items-center lg:items-start text-center lg:text-start w-full relative">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-14 md:h-14 z-50 animate-orbit pointer-events-none hidden md:block">
@@ -106,8 +108,7 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* Hero Astronaut Section */}
-      <section className="relative min-h-fit py-2 md:py-20 flex flex-col items-center overflow-x-hidden">
+      <section className="relative min-h-fit py-2 md:py-20 flex flex-col items-center overflow-hidden">
         <AdaptiveReveal delay={0.2} className="z-50 mb-6 md:mb-16">
           <Link to="/services">
             <button className="px-8 md:px-14 py-3 md:py-4 rounded-xl md:rounded-2xl bg-[#1a1b26]/60 border border-blue-500 text-blue-400 text-xl md:text-4xl font-bold backdrop-blur-xl transition-all hover:scale-105">
@@ -117,9 +118,8 @@ const Hero = () => {
         </AdaptiveReveal>
 
         <div className="relative w-full max-w-full flex items-center justify-center">
-          {/* رائد الفضاء في الهيرو - تم رفع الـ z-index */}
           <div 
-            className="absolute z-[60] top-1/2 left-1/2 pointer-events-none transition-transform duration-500 ease-out flex flex-col items-center"
+            className="absolute z-40 top-1/2 left-1/2 pointer-events-none transition-transform duration-500 ease-out flex flex-col items-center"
             style={{ transform: `translate(calc(-50% + ${(scrollPos - 0.5) * (language === 'ar' ? 80 : -80)}px), -10%)` }}
           >
             <div className="relative w-[80px] md:w-[180px] animate-float">
@@ -164,27 +164,15 @@ const Goals = () => {
     <section className="relative py-6 md:py-24 px-6 z-20">
       <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center relative z-20">
         <div className={`flex md:hidden w-full justify-between items-center mb-4 px-0 ${language === 'en' ? 'flex-row-reverse' : 'flex-row'}`} dir="ltr">
-          {/* رائد الفضاء - موبايل */}
-          <div className="w-[28%] animate-float z-[60]"><img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686175/cccc_irddlo.png" alt="رائد فضاء" className="w-full" /></div>
+          <div className="w-[28%] animate-float"><img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686175/cccc_irddlo.png" alt="رائد فضاء" className="w-full" /></div>
           <h2 className="inline-block text-4xl text-white glow-text">{t('goals.title')}</h2>
-          <div className="w-[22%] animate-float z-[60]"><img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686171/Asset_8_rhau52.png" alt="لوحة" className="w-full" /></div>
-        </div>
-
-        {/* رائد الفضاء - ديسكتوب */}
-        <div className={`hidden md:block absolute top-[-55%] -translate-y-1/2 w-[300px] pointer-events-none z-[60] animate-float opacity-100 ${language === 'ar' ? 'left-[-130px]' : 'right-[-130px]'}`}>
-          <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686175/cccc_irddlo.png" alt="رائد فضاء" className={`w-full h-auto ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
+          <div className="w-[22%] animate-float"><img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686171/Asset_8_rhau52.png" alt="لوحة" className="w-full" /></div>
         </div>
 
         <AdaptiveReveal className="relative z-30 flex flex-col items-center max-w-3xl">
           <h2 className="hidden md:block text-5xl md:text-7xl lg:text-[8rem] text-white glow-text">{t('goals.title')}</h2>
           <p className="text-sm md:text-3xl text-white/90 leading-relaxed text-center font-light px-2 md:px-4 max-w-[280px] md:max-w-none mx-auto -mt-12 md:mt-0">{t('goals.desc_main')}</p>
         </AdaptiveReveal>
-
-        <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-[250px] pointer-events-none z-[60] opacity-100 ${language === 'ar' ? 'right-0' : 'left-0'}`}>
-          <div className="relative animate-float" style={{ animationDelay: '1s' }}>
-            <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686171/Asset_8_rhau52.png" alt="لوحة الهدف" className={`w-full h-auto ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -195,8 +183,7 @@ const Ambition = () => {
   const { t, language } = useLanguage();
   return (
     <section className="relative py-4 md:py-20 px-6 md:px-20 min-h-[40vh] md:min-h-[80vh] flex items-center justify-center z-20">
-      {/* رائد فضاء العلم - تم رفع الـ z-index */}
-      <div className={`absolute top-4 md:top-10 w-40 md:w-[600px] animate-float z-[60] pointer-events-none ${language === 'en' ? 'left-4' : 'left-1/2 -translate-x-1/2 md:right-10 md:left-auto md:translate-x-0'}`}>
+      <div className={`absolute top-4 md:top-10 w-40 md:w-[600px] animate-float z-40 pointer-events-none ${language === 'en' ? 'left-4' : 'left-1/2 -translate-x-1/2 md:right-10 md:left-auto md:translate-x-0'}`}>
         <img src={language === 'en' ? 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768753480/FLAG_REVARS_fyvedl.png' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686185/xxxxx_chyx9k.png'} alt="flag" className="w-full opacity-100" />
       </div>
 
@@ -217,7 +204,7 @@ const Ambition = () => {
 // --- سكشن الاستوديو (Studio Showcase) ---
 const StudioShowcase = () => {
   return (
-    <section className="relative w-full py-10 px-0 overflow-x-hidden">
+    <section className="relative w-full py-10 px-0 overflow-hidden">
       <AdaptiveReveal className="max-w-[1920px] mx-auto relative group">
         <div className="relative aspect-[21/9] w-full overflow-hidden border-y border-white/5 shadow-[0_0_100px_rgba(0,0,0,0.5)]">
           <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686177/zzzz_rprsbt.png" alt="Studio" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -232,7 +219,7 @@ const StudioShowcase = () => {
 const IdeaPlanting = () => {
   const { t } = useLanguage();
   return (
-    <section className="relative py-10 md:py-20 px-10 md:px-20 overflow-x-hidden flex flex-col items-center justify-center text-center">
+    <section className="relative py-10 md:py-20 px-10 md:px-20 overflow-hidden flex flex-col items-center justify-center text-center">
       <div className="relative z-10 max-w-4xl">
         <AdaptiveReveal>
           <h2 className="text-4xl md:text-8xl lg:text-[9rem] text-white glow-text ">{t('idea.title')}</h2>
