@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
-import BackgroundEffects from '../components/BackgroundEffects'; // تأكد من صحة المسار
+import BackgroundEffects from '../components/BackgroundEffects'; 
 
 // --- سكشن الهيرو (Hero) ---
 const Hero = () => {
@@ -90,7 +90,8 @@ const Hero = () => {
                 <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="نيزك ثابت" className="w-full h-full object-contain drop-shadow-[0_0_50px_rgba(255,255,255,0.15)]" />
               </div>
               <br />
-              <h1 className="text-2xl md:text-6xl lg:text-[7rem] text-white glow-text ">{t('hero.title')}</h1>
+              {/* تعديل: تكبير العنوان وجعله منوراً */}
+              <h1 className="text-4xl md:text-6xl lg:text-[7rem] text-white glow-text drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]">{t('hero.title')}</h1>
             </ScrollReveal>
 
             <ScrollReveal delay={0.4} className="max-w-[280px] md:max-w-2xl space-y-4 px-2 lg:px-0 mx-auto lg:mx-0">
@@ -104,7 +105,8 @@ const Hero = () => {
       <section className="relative min-h-fit py-2 md:py-20 flex flex-col items-center overflow-hidden">
         <ScrollReveal delay={0.2} className="z-50 mb-6 md:mb-16">
           <Link to="/services">
-            <button className="px-8 md:px-14 py-3 md:py-4 rounded-xl md:rounded-2xl bg-[#1a1b26]/60 border border-blue-500 text-blue-400 text-xl md:text-4xl font-bold shadow-[0_0_25px_rgba(59,130,246,0.6)] backdrop-blur-xl transition-all hover:scale-105">
+            {/* تعديل: إزالة الانارة (الشادو) من البوردر */}
+            <button className="px-8 md:px-14 py-3 md:py-4 rounded-xl md:rounded-2xl bg-[#1a1b26]/60 border border-blue-500 text-blue-400 text-xl md:text-4xl font-bold backdrop-blur-xl transition-all hover:scale-105">
               {t('nav.discover')}
             </button>
           </Link>
@@ -192,7 +194,8 @@ const Goals = () => {
           <div className="w-[28%] animate-float pointer-events-none z-40">
             <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686175/cccc_irddlo.png" alt="رائد فضاء" className={`w-full h-auto opacity-100 ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
           </div>
-          <h2 className="hidden md:inline-block text-2xl md:text-6xl lg:text-[7rem] text-white glow-text" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+          {/* تعديل: إظهار العنوان ع الموبايل وتكبير حجمه */}
+          <h2 className="inline-block text-4xl text-white glow-text" dir={language === 'ar' ? 'rtl' : 'ltr'}>
             {t('goals.title')}
           </h2>
           <div className="w-[22%] animate-float pointer-events-none z-40" style={{ animationDelay: '1s' }}>
@@ -205,7 +208,8 @@ const Goals = () => {
         </div>
 
         <ScrollReveal className="relative z-30 flex flex-col items-center max-w-3xl pt-0 md:pt-0">
-          <h2 className="hidden md:block text-2xl md:text-6xl lg:text-[7rem] text-white glow-text">
+          {/* تعديل: تكبير حجم العنوان في الديسكتوب أيضاً */}
+          <h2 className="hidden md:block text-5xl md:text-7xl lg:text-[8rem] text-white glow-text">
             {t('goals.title')}
           </h2>
           <p className="text-sm md:text-3xl text-white/90 leading-relaxed text-center font-light px-2 md:px-4 max-w-[280px] md:max-w-none mx-auto -mt-12 md:mt-0">
@@ -242,7 +246,8 @@ const Ambition = () => {
 
       <div className="relative z-30 max-w-5xl w-full flex flex-col items-center text-center pt-24 md:pt-0">
         <ScrollReveal>
-          <h2 className="text-2xl md:text-6xl lg:text-[7rem] text-white glow-text">
+          {/* تعديل: تكبير العنوان وجعله منوراً */}
+          <h2 className="text-4xl md:text-8xl lg:text-[9rem] text-white glow-text drop-shadow-[0_0_30px_rgba(255,255,255,0.4)]">
             {t('ambition.title')}
           </h2>
         </ScrollReveal>
@@ -282,7 +287,8 @@ const IdeaPlanting = () => {
     <section className="relative py-10 md:py-20 px-10 md:px-20 overflow-hidden flex flex-col items-center justify-center text-center">
       <div className="relative z-10 max-w-4xl">
         <ScrollReveal>
-          <h2 className="text-2xl md:text-6xl lg:text-[7rem] text-white glow-text ">
+          {/* تعديل: تكبير العنوان "نزرع فكرة" */}
+          <h2 className="text-4xl md:text-8xl lg:text-[9rem] text-white glow-text ">
             {t('idea.title')}
           </h2>
           <br />
@@ -300,8 +306,7 @@ const IdeaPlanting = () => {
 // --- الصفحة الرئيسية الكاملة ---
 const Home = () => {
   return (
-    <main className="w-full  relative">
-      {/* مكون الخلفية النجمية */}
+    <main className="w-full relative">
       <BackgroundEffects />
       
       <style>{`
@@ -320,7 +325,6 @@ const Home = () => {
         }
       `}</style>
       
-      {/* محتوى الصفحة فوق الخلفية */}
       <div className="relative z-10">
         <Hero />
         <Goals />
