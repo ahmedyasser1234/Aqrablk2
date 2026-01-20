@@ -70,7 +70,7 @@ const WebDesignPage = () => {
         <div className="w-full lg:w-1/2 order-1 lg:order-2">
           <ScrollReveal delay={0.3}>
             <img 
-              src={language === 'en' ? 'رابط_صورة_الانجليزي_هنا' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686522/Asset_4_2x_vu9c2h.png'} 
+              src={language === 'en' ? 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768838352/programmer_flip_bzbmw0.png' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686522/Asset_4_2x_vu9c2h.png'} 
               alt="Web Design Astronaut" 
               className={`w-full animate-float drop-shadow-[0_0_50px_rgba(168,85,247,0.2)] object-contain transition-transform duration-500 ${
                 language === 'en' ? 'scale-x-[-1]' : 'scale-x-[1]'

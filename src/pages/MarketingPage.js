@@ -35,7 +35,7 @@ const MarketingPage = () => {
             <img 
               // تغيير رابط الصورة بناءً على اللغة
               src={language === 'en' 
-                ? 'رابط_صورة_الانجليزي_هنا' 
+                ? 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768840822/markting_flip_1_tlehvk.png' 
                 : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686481/Asset_6_2x_wo2ndl.png'
               } 
               alt="Marketing Astronaut" 
