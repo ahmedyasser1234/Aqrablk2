@@ -229,7 +229,7 @@ const Ambition = () => {
   const { t, language } = useLanguage();
   return (
     <section className="relative py-4 md:py-20 px-6 md:px-20 min-h-[50vh] md:min-h-[80vh] flex items-center justify-center z-20 overflow-visible">
-      <div className={`absolute top-1/2 -translate-y-1/2 w-24 md:w-60 animate-float opacity-40 pointer-events-none z-10 ${language === 'en' ? 'right-4 md:right-10' : 'left-4 md:left-10'}`}>
+      <div className={`absolute top-1/2 -translate-y-1/2 w-24 md:w-60 animate-float  pointer-events-none z-10 ${language === 'en' ? 'right-4 md:right-10' : 'left-4 md:left-10'}`}>
         <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="meteor" className={`w-full h-auto -translate-y-20 md:translate-y-0 ${language === 'ar' ? 'scale-x-[-1]' : ''}`} />
       </div>
 
