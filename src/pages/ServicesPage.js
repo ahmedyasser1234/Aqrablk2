@@ -274,9 +274,12 @@ const ServicesPage = () => {
   </div>
 </section>
 
-      {/* Studio Rental Section */}
+            {/* Studio Rental Section */}
       <section className="relative min-h-[60vh] md:min-h-[100vh] flex flex-col items-center justify-center text-center py-12 overflow-hidden">
-        {/* تم حذف ديف الخلفية بالكامل (صورة الخلفية bbb_k3mvpy) من هنا */}
+        <div className="absolute inset-0 z-0">
+          <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686452/bbb_k3mvpy.png" alt="Studio Background" className={`w-full h-full object-cover ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
+          <div className="absolute inset-0 "></div>
+        </div>
         <div className="relative z-10 px-10">
           <ScrollReveal direction="down">
             <h2 className="text-4xl md:text-[5rem] text-white glow-text mb-8 font-black select-none whitespace-nowrap">{t('service.studio')}</h2>
