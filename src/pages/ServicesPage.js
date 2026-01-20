@@ -6,7 +6,7 @@ import ScrollReveal from '../components/ScrollReveal';
 const youtubeVideos = [
   "0NgXkHQTt4U", 
   "k9M60YJJ3iE",
-  "m2mdBK91kQY"
+  "LuBwtX5gGxU"
 ];
 
 const montageVideos = [
