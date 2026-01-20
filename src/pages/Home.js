@@ -124,8 +124,8 @@ const Hero = () => {
               <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768685845/ccc_ninmwa.png" alt="رائد فضاء" className={`w-full h-auto ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
             </div>
 
-            {/* شريط السكرول (Pagination) فقط بدون أي خطوط خلفية */}
-            <div className="flex items-center gap-2 mt-4 md:mt-8 pointer-events-auto h-8 relative bg-transparent">
+            {/* تم إضافة hidden md:flex هنا ليختفي في الموبايل ويظهر في الديسكتوب */}
+            <div className="hidden md:flex items-center gap-2 mt-4 md:mt-8 pointer-events-auto h-8 relative bg-transparent">
               {sliderData.map((service, index) => {
                 const isActive = activeIndex === index;
                 return (
