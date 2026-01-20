@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../context/LanguageContext'; // تأكد من المسار الصحيح
 import ScrollReveal from '../components/ScrollReveal';
 
 const youtubeVideos = [
@@ -119,7 +119,7 @@ const ServicesPage = () => {
           </ScrollReveal>
           <div className="relative">
             <ScrollReveal delay={0.2}>
-              <h2 className="text-5xl md:text-[6.5rem] glow-text leading-[0.8] mt-16 md:mt-32 z-30 -translate-y-[30px] ">{t('services.main_title')}</h2>
+              <h2 className="text-5xl md:text-[6.5rem] glow-text leading-[0.8] mt-16 md:mt-32 z-30 -translate-y-[30px] font-black">{t('services.main_title')}</h2>
             </ScrollReveal>
             <ScrollReveal className={`absolute ${language === 'ar' ? '-right-10 md:-right-30' : '-left-10 md:-left-30'} top-[60%] md:top-[70%] w-10 h-10 md:w-20 md:h-20 animate-float pointer-events-none z-40`} delay={0.4}>
               <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="Small Rock" className="w-full h-full object-contain brightness-75 rotate-45" />
@@ -154,13 +154,7 @@ const ServicesPage = () => {
                   let styleClass = isActive ? "z-30 scale-100 opacity-100 shadow-[0_0_60px_rgba(59,130,246,0.4)] border-2 border-white/20 blur-0" : isPrev ? "z-10 -translate-x-[45%] scale-[0.65] opacity-30 blur-[4px]" : isNext ? "z-10 translate-x-[45%] scale-[0.65] opacity-30 blur-[4px]" : "opacity-0 scale-50 blur-xl";
                   return (
                     <div key={index} onClick={() => handleVideoClick(index)} className={`absolute transition-all duration-[800ms] w-[280px] md:w-[450px] aspect-video rounded-3xl overflow-hidden cursor-pointer ${styleClass}`}>
-                      <iframe 
-                        title={`Motion Graphics Video ${index + 1}`}
-                        className="w-full h-full pointer-events-none" 
-                        src={`https://www.youtube.com/embed/${id}?controls=0&modestbranding=1&rel=0${isActive && playingVideo === id ? '&autoplay=1' : ''}`} 
-                        frameBorder="0" 
-                        allowFullScreen
-                      ></iframe>
+                      <iframe className="w-full h-full pointer-events-none" src={`https://www.youtube.com/embed/${id}?controls=0&modestbranding=1&rel=0${isActive && playingVideo === id ? '&autoplay=1' : ''}`} frameBorder="0" allowFullScreen></iframe>
                     </div>
                   );
                 })}
@@ -177,7 +171,7 @@ const ServicesPage = () => {
       {/* Montage Section */}
       <section className="relative py-2 md:py-20 px-6 md:px-10">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-16">
-          <div className="w-full lg:w-2/5 flex justify-center relative lg:-mt-[150px] z-50 order-1 lg:order-2 mb-8 md:mb-0">
+          <div className="w-full lg:w-2/5 flex justify-center relative lg:-mt-[140px] z-50 order-1 lg:order-2 mb-8 md:mb-0">
             <ScrollReveal direction={language === 'ar' ? 'left' : 'right'} className="relative w-48 h-48 md:w-[32rem] md:h-[32rem] animate-float" style={{ animationDelay: '1s' }}>
               <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686469/xxx_yv639q.png" alt="Montage Astronaut" className={`w-full h-auto ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
             </ScrollReveal>
@@ -199,13 +193,7 @@ const ServicesPage = () => {
                   let styleClass = isActive ? "z-30 scale-100 opacity-100 shadow-[0_0_60px_rgba(168,85,247,0.4)] border-2 border-white/20 blur-0" : isPrev ? "z-10 -translate-x-[45%] scale-[0.65] opacity-30 blur-[4px]" : isNext ? "z-10 translate-x-[45%] scale-[0.65] opacity-30 blur-[4px]" : "opacity-0 scale-50 blur-xl";
                   return (
                     <div key={index} onClick={() => handleMontageClick(index)} className={`absolute transition-all duration-[800ms] w-[280px] md:w-[450px] aspect-video rounded-3xl overflow-hidden cursor-pointer ${styleClass}`}>
-                      <iframe 
-                        title={`Montage Video ${index + 1}`}
-                        className="w-full h-full pointer-events-none" 
-                        src={`https://www.youtube.com/embed/${id}?controls=0&modestbranding=1&rel=0${isActive && playingMontage === id ? '&autoplay=1' : ''}`} 
-                        frameBorder="0" 
-                        allowFullScreen
-                      ></iframe>
+                      <iframe className="w-full h-full pointer-events-none" src={`https://www.youtube.com/embed/${id}?controls=0&modestbranding=1&rel=0${isActive && playingMontage === id ? '&autoplay=1' : ''}`} frameBorder="0" allowFullScreen></iframe>
                     </div>
                   );
                 })}
@@ -242,7 +230,7 @@ const ServicesPage = () => {
       </section>
 
       {/* Design Section */}
-  <section className="relative py-2 md:py-20 px-6 md:px-10 z-20">
+ <section className="relative py-2 md:py-20 px-6 md:px-10 z-20">
   <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-16">
     
     {/* حاوية الصورة */}
@@ -280,7 +268,7 @@ const ServicesPage = () => {
       <section className="relative min-h-[60vh] md:min-h-[100vh] flex flex-col items-center justify-center text-center py-12">
         <div className="absolute inset-0 z-0">
           <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686452/bbb_k3mvpy.png" alt="Studio Background" className={`w-full h-full object-cover ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
-          <div className="absolute inset-0 "></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#080911]/80 via-transparent to-[#080911]/80"></div>
         </div>
         <div className="relative z-10 px-10">
           <ScrollReveal direction="down">
@@ -358,28 +346,29 @@ const ServicesPage = () => {
         </div>
       </section>
 
-     {/* Marketing Section */}
-  <section className="relative py-2 md:py-20 px-6 md:px-10">
-    <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-16">
-      <div className="w-full lg:w-2/5 flex justify-center relative lg:mt-[200px] z-50 order-1 lg:order-2 mb-8 md:mb-0">
-        <ScrollReveal direction={language === 'ar' ? 'left' : 'right'} className="relative w-48 h-48 md:w-[32rem] md:h-[32rem] animate-float" style={{ animationDelay: '1.5s' }}>
-          <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686481/Asset_6_2x_wo2ndl.png" alt="Marketing Astronaut" className={`w-full h-auto ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
-        </ScrollReveal>
-      </div>
-      <div className="w-full lg:w-3/5 flex flex-col items-center lg:items-end text-center lg:text-end order-2 lg:order-1">
-        <ScrollReveal direction={language === 'ar' ? 'right' : 'left'}>
-          <h2 className={`text-3xl md:text-7xl text-white glow-text mb-6 font-black relative ${language === 'ar' ? 'lg:-translate-x-[220px]' : 'lg:translate-x-[220px]'} z-0 pointer-events-none whitespace-nowrap`}>{t('service.marketing')}</h2>
-        </ScrollReveal>
-        <ScrollReveal delay={0.1} direction={language === 'ar' ? 'right' : 'left'}>
-          <p className={`text-gray-300 text-base md:text-xl max-w-xl leading-loose mb-12 relative ${language === 'ar' ? 'lg:-translate-x-[80px]' : 'lg:translate-x-[80px]'}`}>{t('service.marketing.desc')}</p>
-        </ScrollReveal>
-        <ScrollReveal delay={0.2} className="w-full flex justify-center lg:justify-end lg:ps-20">
-          <button onClick={() => navigate('/services/marketing')} className="mt-8 px-12 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 text-purple-400 font-bold text-xl md:text-2xl transition-all">{t('services.more')}</button>
-        </ScrollReveal>
-      </div>
+      {/* Marketing Section */}
+      <section className="relative py-2 md:py-20 px-6 md:px-10">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-16">
+          <div className="w-full lg:w-2/5 flex justify-center relative lg:mt-[200px] z-50 order-1 lg:order-2 mb-8 md:mb-0">
+            <ScrollReveal direction={language === 'ar' ? 'left' : 'right'} className="relative w-48 h-48 md:w-[32rem] md:h-[32rem] animate-float" style={{ animationDelay: '1.5s' }}>
+              <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686481/Asset_6_2x_wo2ndl.png" alt="Marketing Astronaut" className={`w-full h-auto ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
+            </ScrollReveal>
+          </div>
+          <div className="w-full lg:w-3/5 flex flex-col items-center lg:items-end text-center lg:text-end order-2 lg:order-1">
+            <ScrollReveal direction={language === 'ar' ? 'right' : 'left'}>
+              <h2 className={`text-3xl md:text-7xl text-white glow-text mb-6 font-black relative ${language === 'ar' ? 'lg:-translate-x-[220px]' : 'lg:translate-x-[220px]'} z-0 pointer-events-none whitespace-nowrap`}>{t('service.marketing')}</h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1} direction={language === 'ar' ? 'right' : 'left'}>
+              <p className={`text-gray-300 text-base md:text-xl max-w-xl leading-loose mb-12 relative ${language === 'ar' ? 'lg:-translate-x-[80px]' : 'lg:translate-x-[80px]'}`}>{t('service.marketing.desc')}</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2} className="w-full flex justify-center lg:justify-end lg:ps-20">
+              <button onClick={() => navigate('/services/marketing')} className="mt-8 px-12 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 text-purple-400 font-bold text-xl md:text-2xl transition-all">{t('services.more')}</button>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
-</div>
-);
+  );
 };
+
 export default ServicesPage;
