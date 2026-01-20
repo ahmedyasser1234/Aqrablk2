@@ -189,39 +189,64 @@ const Goals = () => {
     <section className="relative py-6 md:py-24 px-6 z-20">
       <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center relative z-20">
         <div className={`flex md:hidden w-full justify-between items-center mb-4 px-0 ${language === 'en' ? 'flex-row-reverse' : 'flex-row'}`} dir="ltr">
-          <div className="w-[28%] animate-float"><img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686175/cccc_irddlo.png" alt="رائد فضاء" className="w-full" /></div>
-          <h2 className="inline-block text-4xl text-white glow-text">{t('goals.title')}</h2>
-          <div className="w-[22%] animate-float"><img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686171/Asset_8_rhau52.png" alt="لوحة" className="w-full" /></div>
+          <div className="w-[28%] animate-float pointer-events-none z-40">
+            <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686175/cccc_irddlo.png" alt="رائد فضاء" className={`w-full h-auto opacity-100 ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
+          </div>
+          <h2 className="md:hidden md:inline-block text-2xl md:text-4xl text-white glow-text" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+            {t('goals.title')}
+          </h2>
+          <div className="w-[22%] animate-float pointer-events-none z-40" style={{ animationDelay: '1s' }}>
+            <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686171/Asset_8_rhau52.png" alt="لوحة الهدف" className={`w-full h-auto opacity-100 ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
+          </div>
         </div>
 
-        <AdaptiveReveal className="relative z-30 flex flex-col items-center max-w-3xl">
-          <h2 className="hidden md:block text-5xl md:text-7xl lg:text-[8rem] text-white glow-text">{t('goals.title')}</h2>
-          <p className="text-sm md:text-3xl text-white/90 leading-relaxed text-center font-light px-2 md:px-4 max-w-[280px] md:max-w-none mx-auto -mt-12 md:mt-0">{t('goals.desc_main')}</p>
-        </AdaptiveReveal>
+        <div className={`hidden md:block absolute top-[-55%] -translate-y-1/2 w-[300px] pointer-events-none z-40 animate-float opacity-100 ${language === 'ar' ? 'left-[-130px]' : 'right-[-130px]'}`}>
+          <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686175/cccc_irddlo.png" alt="رائد فضاء" className={`w-full h-auto ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
+        </div>
+
+        <ScrollReveal className="relative z-30 flex flex-col items-center max-w-3xl pt-0 md:pt-0">
+          <h2 className="hidden md:block text-2xl md:text-6xl lg:text-[7rem] text-white glow-text">
+            {t('goals.title')}
+          </h2>
+          <p className="text-sm md:text-3xl text-white/90 leading-relaxed text-center font-light px-2 md:px-4 max-w-[280px] md:max-w-none mx-auto -mt-12 md:mt-0">
+            {t('goals.desc_main')}
+          </p>
+        </ScrollReveal>
+
+        <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-[250px] pointer-events-none z-40 opacity-100 ${language === 'ar' ? 'right-0' : 'left-0'}`}>
+          <div className="relative animate-float" style={{ animationDelay: '1s' }}>
+            <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686171/Asset_8_rhau52.png" alt="لوحة الهدف" className={`w-full h-auto ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
+          </div>
+        </div>
       </div>
     </section>
   );
 };
 
+
 // --- سكشن الطموح (Ambition) ---
 const Ambition = () => {
   const { t, language } = useLanguage();
   return (
-    <section className="relative py-4 md:py-20 px-6 md:px-20 min-h-[40vh] md:min-h-[80vh] flex items-center justify-center z-20 overflow-visible">
-      <div className={`absolute top-1/2 -translate-y-1/2 w-24 md:w-60 animate-float opacity-40 pointer-events-none z-10 ${language === 'en' ? 'right-4 md:right-10' : 'left-4 md:left-10'}`}>
-        <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="meteor" className={`w-full h-auto ${language === 'ar' ? 'scale-x-[-1]' : ''}`} />
+    <section className="relative py-4 md:py-20 px-6 md:px-20 min-h-[40vh] md:min-h-[80vh] flex items-center justify-center z-20 overflow-visible  ">
+      <div className={`absolute top-1/2 -translate-y-1/2 w-24 md:w-60 animate-float  pointer-events-none z-10 ${language === 'en' ? 'right-4 md:right-10' : 'left-4 md:left-10'}`}>
+        <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="meteor" className={`w-full h-auto -translate-y-40 md:translate-y-0 ${language === 'ar' ? 'scale-x-[-1]' : ''}`} />
       </div>
 
-      <div className={`absolute top-4 md:top-10 w-40 md:w-[600px] animate-float z-40 pointer-events-none ${language === 'en' ? 'left-4' : 'left-1/2 -translate-x-1/2 md:right-10 md:left-auto md:translate-x-0'}`}>
+      <div className={`absolute top-1 md:top-10 w-40 md:w-[600px] animate-float z-40 pointer-events-none ${language === 'en' ? 'left-4' : 'left-1/2 -translate-x-1/2 md:right-10 md:left-auto md:translate-x-0'}`}
+        style={{ top: language === 'en' ? '4px' : '1rem' }}
+      >
         <img src={language === 'en' ? 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768753480/FLAG_REVARS_fyvedl.png' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686185/xxxxx_chyx9k.png'} alt="flag" className="w-full opacity-100" />
       </div>
 
       <div className="relative z-30 max-w-5xl w-full flex flex-col items-center text-center pt-24 md:pt-0">
         <AdaptiveReveal>
-          <h2 className="text-4xl md:text-8xl lg:text-[9rem] text-white glow-text drop-shadow-[0_0_30px_rgba(255,255,255,0.4)]">{t('ambition.title')}</h2>
+          <h2 className="text-4xl md:text-8xl lg:text-[9rem] text-white glow-text drop-shadow-[0_0_30px_rgba(255,255,255,0.4)] mb-40 md:mb-0">
+            {t('ambition.title')}
+          </h2>
         </AdaptiveReveal>
         <br />
-        <div className="max-w-2xl space-y-2 px-2 md:px-0">
+        <div className="max-w-2xl space-y-1 px-2 md:px-0 transform -translate-y-40 md:translate-y-0">
           <AdaptiveReveal delay={0.2}><p className="text-base md:text-3xl text-white/90 font-medium">{t('ambition.p1')}</p></AdaptiveReveal>
           <AdaptiveReveal delay={0.4}><p className="text-base md:text-3xl text-white/90 font-medium">{t('ambition.p2')}</p></AdaptiveReveal>
         </div>
