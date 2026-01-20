@@ -16,10 +16,8 @@ const AdaptiveReveal = ({ children, ...props }) => {
   }, []);
 
   if (isMobile) {
-    // على الموبايل يرجع العناصر فوراً داخل div عادي للحفاظ على الكلاسات بدون أنيميشن
     return <div className={props.className}>{children}</div>;
   }
-  // على الديسكتوب يرجع المكون الأصلي بتأثيراته
   return <ScrollReveal {...props}>{children}</ScrollReveal>;
 };
 
@@ -108,7 +106,8 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="relative min-h-fit py-2 md:py-20 flex flex-col items-center overflow-hidden">
+      {/* تم تغيير overflow-hidden إلى overflow-visible هنا لضمان عدم اختفاء رائد الفضاء عند النزول */}
+      <section className="relative min-h-fit py-2 md:py-20 flex flex-col items-center overflow-visible z-30">
         <AdaptiveReveal delay={0.2} className="z-50 mb-6 md:mb-16">
           <Link to="/services">
             <button className="px-8 md:px-14 py-3 md:py-4 rounded-xl md:rounded-2xl bg-[#1a1b26]/60 border border-blue-500 text-blue-400 text-xl md:text-4xl font-bold backdrop-blur-xl transition-all hover:scale-105">
@@ -182,7 +181,12 @@ const Goals = () => {
 const Ambition = () => {
   const { t, language } = useLanguage();
   return (
-    <section className="relative py-4 md:py-20 px-6 md:px-20 min-h-[40vh] md:min-h-[80vh] flex items-center justify-center z-20">
+    <section className="relative py-4 md:py-20 px-6 md:px-20 min-h-[40vh] md:min-h-[80vh] flex items-center justify-center z-20 overflow-visible">
+      {/* صورة النيزك الجديدة: يمين في الانجليزي ويسار في العربي */}
+      <div className={`absolute top-1/2 -translate-y-1/2 w-20 md:w-56 animate-float opacity-50 pointer-events-none z-10 ${language === 'en' ? 'right-4 md:right-10' : 'left-4 md:left-10'}`}>
+        <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="meteor" className={`w-full h-auto ${language === 'ar' ? 'scale-x-[-1]' : ''}`} />
+      </div>
+
       <div className={`absolute top-4 md:top-10 w-40 md:w-[600px] animate-float z-40 pointer-events-none ${language === 'en' ? 'left-4' : 'left-1/2 -translate-x-1/2 md:right-10 md:left-auto md:translate-x-0'}`}>
         <img src={language === 'en' ? 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768753480/FLAG_REVARS_fyvedl.png' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686185/xxxxx_chyx9k.png'} alt="flag" className="w-full opacity-100" />
       </div>
