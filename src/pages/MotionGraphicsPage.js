@@ -4,7 +4,10 @@ import ScrollReveal from '../components/ScrollReveal';
 
 // قائمة فيديوهات الموشن جرافيك
 const motionVideos = [
-  "0NgXkHQTt4U"
+  "0NgXkHQTt4U",
+    "LuBwtX5gGxU",
+  "OF2HItDjrFA"
+
 ];
 
 // قائمة فيديوهات الوايت بورد
