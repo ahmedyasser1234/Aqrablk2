@@ -106,7 +106,6 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* الجزء الثاني من الهيرو: رائد الفضاء مع شريط السكرول */}
       <section className="relative min-h-fit py-2 md:py-20 flex flex-col items-center overflow-visible z-30">
         <AdaptiveReveal delay={0.2} className="z-50 mb-6 md:mb-16">
           <Link to="/services">
@@ -117,23 +116,20 @@ const Hero = () => {
         </AdaptiveReveal>
 
         <div className="relative w-full max-w-full flex items-center justify-center">
-          {/* حاوية رائد الفضاء وشريط السكرول (Pagination) */}
           <div 
             className="absolute z-40 top-1/2 left-1/2 pointer-events-none transition-transform duration-500 ease-out flex flex-col items-center"
             style={{ transform: `translate(calc(-50% + ${(scrollPos - 0.5) * (language === 'ar' ? 80 : -80)}px), -10%)` }}
           >
-            {/* صورة رائد الفضاء */}
             <div className="relative w-[80px] md:w-[180px] animate-float">
               <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768685845/ccc_ninmwa.png" alt="رائد فضاء" className={`w-full h-auto ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
             </div>
 
-            {/* شريط السكرول (Pagination) تحت رائد الفضاء */}
-            <div className="flex items-center gap-2 mt-4 md:mt-8 pointer-events-auto h-8 relative">
+            {/* شريط السكرول (Pagination) فقط بدون أي خطوط خلفية */}
+            <div className="flex items-center gap-2 mt-4 md:mt-8 pointer-events-auto h-8 relative bg-transparent">
               {sliderData.map((service, index) => {
                 const isActive = activeIndex === index;
                 return (
                   <div key={index} className="relative flex flex-col items-center justify-center">
-                    {/* أيقونة المركبة الفضائية الصغيرة فوق الجزء النشط */}
                     {isActive && (
                       <img 
                         src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" 
@@ -148,7 +144,7 @@ const Hero = () => {
                         width: isActive ? (window.innerWidth < 768 ? '25px' : '40px') : '8px',
                         boxShadow: isActive ? `0 0 15px ${service.color}` : 'none'
                       }}
-                      className="h-2 rounded-full transition-all duration-500 ease-in-out"
+                      className="h-2 rounded-full transition-all duration-500 ease-in-out border-none outline-none"
                     />
                   </div>
                 );
@@ -160,7 +156,7 @@ const Hero = () => {
             <div 
               ref={sliderRef}
               onScroll={handleScroll}
-              className="flex gap-4 md:gap-6 overflow-x-auto py-8 md:py-20 px-[20vw] md:px-[35vw] scrollbar-hide snap-x snap-mandatory w-full"
+              className="flex gap-4 md:gap-6 overflow-x-auto py-8 md:py-20 px-[20vw] md:px-[35vw] scrollbar-hide snap-x snap-mandatory w-full border-none"
             >
               {sliderData.map((service, index) => {
                 const isActive = activeIndex === index;
@@ -212,7 +208,6 @@ const Ambition = () => {
   const { t, language } = useLanguage();
   return (
     <section className="relative py-4 md:py-20 px-6 md:px-20 min-h-[40vh] md:min-h-[80vh] flex items-center justify-center z-20 overflow-visible">
-      {/* صورة النيزك: يمين في الإنجليزية ويسار في العربية */}
       <div className={`absolute top-1/2 -translate-y-1/2 w-24 md:w-60 animate-float opacity-40 pointer-events-none z-10 ${language === 'en' ? 'right-4 md:right-10' : 'left-4 md:left-10'}`}>
         <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="meteor" className={`w-full h-auto ${language === 'ar' ? 'scale-x-[-1]' : ''}`} />
       </div>
@@ -285,6 +280,8 @@ const Home = () => {
             to { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
           }
         }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
       <div className="relative z-10">
         <Hero />
