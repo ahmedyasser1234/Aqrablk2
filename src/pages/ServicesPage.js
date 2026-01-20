@@ -107,7 +107,6 @@ const ServicesPage = () => {
   }, [playingVideo, playingMontage, startAllTimers]);
 
   return (
-    // أضفنا overflow-hidden هنا لمنع أي سكرول عرضي للصفحة بالكامل
     <div className="relative pt-10 overflow-x-hidden w-full">
       {/* Header Section */}
       <section className="relative h-[60vh] md:h-[80vh] flex flex-col items-center justify-center text-center px-10 pb-10 md:pb-20 overflow-hidden">
@@ -127,7 +126,7 @@ const ServicesPage = () => {
             </ScrollReveal>
           </div>
         </div>
-        <div className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[130px] pointer-events-none"></div>
+        {/* تم حذف ديف الخلفية الزرقاء (blur glow) من هنا */}
       </section>
 
       {/* Motion Graphics Section */}
@@ -277,10 +276,7 @@ const ServicesPage = () => {
 
       {/* Studio Rental Section */}
       <section className="relative min-h-[60vh] md:min-h-[100vh] flex flex-col items-center justify-center text-center py-12 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686452/bbb_k3mvpy.png" alt="Studio Background" className={`w-full h-full object-cover ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
-          <div className="absolute inset-0 "></div>
-        </div>
+        {/* تم حذف ديف الخلفية بالكامل (صورة الخلفية bbb_k3mvpy) من هنا */}
         <div className="relative z-10 px-10">
           <ScrollReveal direction="down">
             <h2 className="text-4xl md:text-[5rem] text-white glow-text mb-8 font-black select-none whitespace-nowrap">{t('service.studio')}</h2>
