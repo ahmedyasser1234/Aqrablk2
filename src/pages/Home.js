@@ -36,6 +36,8 @@ const Hero = () => {
     { name: t('service.web'), path: '/services/web-design', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686440/arct_o02dz4.png", color: '#6366f1' },
     { name: t('service.content'), path: '/services/content-writing', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686454/glax_asgtg5.png", color: '#38bdf8' },
     { name: t('service.marketing'), path: '/services/marketing', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686455/sharik_mwmenl.png", color: '#ec4899' },
+    { name: t('service.design'), path: '/services/design', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686455/sharik_mwmenl.png", color: '#2ee64d' },
+
   ];
 
   const scrollToIndex = (index) => {
