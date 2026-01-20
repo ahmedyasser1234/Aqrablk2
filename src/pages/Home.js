@@ -228,9 +228,9 @@ const Goals = () => {
 const Ambition = () => {
   const { t, language } = useLanguage();
   return (
-    <section className="relative py-4 md:py-20 px-6 md:px-20 min-h-[40vh] md:min-h-[80vh] flex items-center justify-center z-20 overflow-visible  ">
-      <div className={`absolute top-1/2 -translate-y-1/2 w-24 md:w-60 animate-float  pointer-events-none z-10 ${language === 'en' ? 'right-4 md:right-10' : 'left-4 md:left-10'}`}>
-        <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="meteor" className={`w-full h-auto -translate-y-40 md:translate-y-0 ${language === 'ar' ? 'scale-x-[-1]' : ''}`} />
+    <section className="relative py-4 md:py-20 px-6 md:px-20 min-h-[50vh] md:min-h-[80vh] flex items-center justify-center z-20 overflow-visible">
+      <div className={`absolute top-1/2 -translate-y-1/2 w-24 md:w-60 animate-float opacity-40 pointer-events-none z-10 ${language === 'en' ? 'right-4 md:right-10' : 'left-4 md:left-10'}`}>
+        <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="meteor" className={`w-full h-auto -translate-y-20 md:translate-y-0 ${language === 'ar' ? 'scale-x-[-1]' : ''}`} />
       </div>
 
       <div className={`absolute top-1 md:top-10 w-40 md:w-[600px] animate-float z-40 pointer-events-none ${language === 'en' ? 'left-4' : 'left-1/2 -translate-x-1/2 md:right-10 md:left-auto md:translate-x-0'}`}
@@ -241,12 +241,12 @@ const Ambition = () => {
 
       <div className="relative z-30 max-w-5xl w-full flex flex-col items-center text-center pt-24 md:pt-0">
         <AdaptiveReveal>
-          <h2 className="text-4xl md:text-8xl lg:text-[9rem] text-white glow-text drop-shadow-[0_0_30px_rgba(255,255,255,0.4)] mb-40 md:mb-0">
+          <h2 className="text-4xl md:text-8xl lg:text-[9rem] text-white glow-text drop-shadow-[0_0_30px_rgba(255,255,255,0.4)] mb-24 md:mb-0">
             {t('ambition.title')}
           </h2>
         </AdaptiveReveal>
-        <br />
-        <div className="max-w-2xl space-y-1 px-2 md:px-0 transform -translate-y-40 md:translate-y-0">
+        <br className="hidden md:block" />
+        <div className="max-w-2xl space-y-1 px-2 md:px-0 transform -translate-y-20 md:translate-y-0 mt-4 md:mt-0">
           <AdaptiveReveal delay={0.2}><p className="text-base md:text-3xl text-white/90 font-medium">{t('ambition.p1')}</p></AdaptiveReveal>
           <AdaptiveReveal delay={0.4}><p className="text-base md:text-3xl text-white/90 font-medium">{t('ambition.p2')}</p></AdaptiveReveal>
         </div>
@@ -258,7 +258,7 @@ const Ambition = () => {
 // --- سكشن الاستوديو (Studio Showcase) ---
 const StudioShowcase = () => {
   return (
-    <section className="relative w-full py-10 px-0 overflow-hidden">
+    <section className="relative w-full py-10 px-0 overflow-hidden mt-8 md:mt-0">
       <AdaptiveReveal className="max-w-[1920px] mx-auto relative group">
         <div className="relative aspect-[21/9] w-full overflow-hidden border-y border-white/5 shadow-[0_0_100px_rgba(0,0,0,0.5)]">
           <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686177/zzzz_rprsbt.png" alt="Studio" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -273,13 +273,13 @@ const StudioShowcase = () => {
 const IdeaPlanting = () => {
   const { t } = useLanguage();
   return (
-    <section className="relative py-10 md:py-20 px-10 md:px-20 overflow-hidden flex flex-col items-center justify-center text-center">
+    <section className="relative py-10 md:py-20 px-6 md:px-20 overflow-hidden flex flex-col items-center justify-center text-center mt-8 md:mt-0">
       <div className="relative z-10 max-w-4xl">
         <AdaptiveReveal>
-          <h2 className="text-4xl md:text-8xl lg:text-[9rem] text-white glow-text ">{t('idea.title')}</h2>
-          <br />
+          <h2 className="text-4xl md:text-8xl lg:text-[9rem] text-white glow-text">{t('idea.title')}</h2>
+          <br className="hidden md:block" />
         </AdaptiveReveal>
-        <div className="space-y-4 max-w-3xl mx-auto">
+        <div className="space-y-4 max-w-3xl mx-auto mt-4 md:mt-0">
           <AdaptiveReveal delay={0.2}><p className="text-xl md:text-3xl text-white/90 font-medium">{t('idea.p1')}</p></AdaptiveReveal>
           <AdaptiveReveal delay={0.4}><p className="text-xl md:text-3xl text-white/90 font-medium">{t('idea.p2')}</p></AdaptiveReveal>
         </div>
