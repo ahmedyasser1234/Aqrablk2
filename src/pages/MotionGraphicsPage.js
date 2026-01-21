@@ -18,10 +18,10 @@ const whiteboardVideos = [
 
 
 const collageVideos = [
-   "CFC9RlT4iag",
-  "VtiITVEEMcw",
-  "r9P6A24-MnI",
-  "GnU8Zt5mBVw"
+  "kImgYtodqOk",
+  "rPMTC9LNaVc",
+  "OPky00oP48o",
+  "uFrh0QbAfBw"
 ];
 
 // مصفوفة الألوان للتنويع (أزرق، بنفسجي، تركواز)
