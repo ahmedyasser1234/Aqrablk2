@@ -11,12 +11,9 @@ const btsVideos = [
 
 // صور نماذج للتصوير
 const photoSessions = [
-  "https://images.unsplash.com/photo-1542038784456-1ea6388dd2e6?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1554048612-387768052bf7?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop"
+  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769018129/IMG_2974_-_Copy_cw7vqw.png",
+  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769018135/IMG_3378_kzvqai.png",
+  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769018136/IMG_2951_-_Copy_yex95j.png",
 ];
 
 // مصفوفة الألوان للتنويع (أزرق، بنفسجي، تركواز)
