@@ -19,6 +19,7 @@ import PhotographyPage from './pages/PhotographyPage';
 import StudioRentalPage from './pages/StudioRentalPage';
 import WebDesignPage from './pages/WebDesignPage';
 import DesignPage from './pages/DesignPage';
+import SocialSidebar from './components/SocialSidebar';
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
           {/* المكونات العائمة (فوق كل الصفحات) */}
           <CursorEffect /> 
           <BackgroundEffects />
-          
+      <SocialSidebar />
           <Navbar />
           
           <main className="relative z-10">
