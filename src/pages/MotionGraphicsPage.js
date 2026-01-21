@@ -16,6 +16,13 @@ const whiteboardVideos = [
   "jX8rBu-4Z2U"
 ];
 
+const horizontalMontageVideos = [
+  "CFC9RlT4iag",
+  "VtiITVEEMcw",
+  "r9P6A24-MnI",
+  "GnU8Zt5mBVw"
+];
+
 // مصفوفة الألوان للتنويع (أزرق، بنفسجي، تركواز)
 const borderColors = ['#3b82f6', '#a855f7', '#22d3ee'];
 
