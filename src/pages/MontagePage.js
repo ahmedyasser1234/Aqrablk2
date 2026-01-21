@@ -17,12 +17,7 @@ const verticalMontageVideos = [
 const horizontalMontageVideos = [
   "x92XEpVqeo4",
   "OF2HItDjrFA",
-  "NgwymX-GIqI",
-  "yVrXzR_89a4",
-  "-6iLsXGn8BE",
-  "GuzsLnfPz48",
-  "QFd8La5hBEs",
-  "zbp2E5Ocbpo"
+
 ];
 
 // مصفوفة الألوان للتنويع (بنفسجي، أزرق، وردي)
