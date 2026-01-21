@@ -10,9 +10,9 @@ const youtubeVideos = [
 ];
 
 const montageVideos = [
-  "m2mdBK91kQY",
-  "0NgXkHQTt4U", 
-  "k9M60YJJ3iE"
+  "r9P6A24-MnI",
+  "S5vDJVYXQgo", 
+  "QWHGHhZelyI"
 ];
 
 const webProjects = [
