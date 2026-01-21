@@ -1,13 +1,12 @@
 import React from 'react';
-import { useLanguage } from '../context/LanguageContext'; // تأكد من المسار الصحيح
+import { useLanguage } from '../context/LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
 
 // قائمة فيديوهات الموشن جرافيك
 const motionVideos = [
   "0NgXkHQTt4U",
-    "LuBwtX5gGxU",
+  "LuBwtX5gGxU",
   "OF2HItDjrFA"
-
 ];
 
 // قائمة فيديوهات الوايت بورد
@@ -16,8 +15,10 @@ const whiteboardVideos = [
   "jX8rBu-4Z2U"
 ];
 
-const horizontalMontageVideos = [
-  "CFC9RlT4iag",
+
+
+const collageVideos = [
+   "CFC9RlT4iag",
   "VtiITVEEMcw",
   "r9P6A24-MnI",
   "GnU8Zt5mBVw"
@@ -82,7 +83,6 @@ const MotionGraphicsPage = () => {
             </button>
           </ScrollReveal>
         </div>
-        
       </section>
       
       {/* القسم الأول: معرض الموشن جرافيك */}
@@ -116,39 +116,38 @@ const MotionGraphicsPage = () => {
         </div>
       </section>
 
-           {/* القسم الأول: مونتاج طولي */}
-<section className="py-16 md:py-24 max-w-7xl mx-auto border-t border-white/5">
-  <ScrollReveal>
-    <h2 className="text-3xl md:text-5xl text-center glow-text mb-12 md:mb-20 font-black text-purple-300">
-      {t('page.montage.gallery')}
-    </h2>
-  </ScrollReveal>
-  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
-    {verticalMontageVideos.map((id, index) => (
-      <ScrollReveal key={`vertical-${index}`} delay={index * 0.1}>
-        <div 
-          className="glowing-border-box vertical aspect-[9/16]"
-          style={{ '--glow-color': borderColors[index % borderColors.length] }}
-        >
-           {/* تم تعديل الريديوس هنا من 2.5rem إلى 1.5rem */}
-           <div className="inner-content w-full h-full rounded-[1.5rem] overflow-hidden relative z-10">
-             <iframe 
-               src={`https://www.youtube.com/embed/${id}`} 
-               title={`Vertical Montage ${index + 1}`}
-               className="w-full h-full"
-               frameBorder="0" 
-               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-               referrerPolicy="strict-origin-when-cross-origin" 
-               allowFullScreen
-             ></iframe>
-           </div>
+      {/* القسم الثاني: كولاج */}
+      <section className="py-16 md:py-24 max-w-7xl mx-auto border-t border-white/5">
+        <ScrollReveal>
+          <h2 className="text-3xl md:text-5xl text-center glow-text mb-12 md:mb-20 font-black text-purple-300">
+            {t('page.montage.gallery')}
+          </h2>
+        </ScrollReveal>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+          {collageVideos.map((id, index) => (
+            <ScrollReveal key={`collage-${index}`} delay={index * 0.1}>
+              <div 
+                className="glowing-border-box vertical aspect-[9/16]"
+                style={{ '--glow-color': borderColors[index % borderColors.length] }}
+              >
+                <div className="inner-content w-full h-full rounded-[1.5rem] overflow-hidden relative z-10">
+                  <iframe 
+                    src={`https://www.youtube.com/embed/${id}`} 
+                    title={`Collage Video ${index + 1}`}
+                    className="w-full h-full"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
-      </ScrollReveal>
-    ))}
-  </div>
-</section>
+      </section>
 
-      {/* القسم الثاني: معرض الوايت بورد */}
+      {/* القسم الثالث: معرض الوايت بورد */}
       <section className="py-16 md:py-24 max-w-7xl mx-auto border-t border-white/5">
         <ScrollReveal>
           <h2 className="text-3xl md:text-5xl text-center glow-text mb-12 md:mb-20 font-black text-purple-400">
