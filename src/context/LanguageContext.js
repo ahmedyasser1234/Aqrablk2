@@ -68,6 +68,7 @@ const translations = {
     'page.motion.desc': 'نحول الأفكار المعقدة إلى رسوم متحركة بسيطة وجذابة. موشن جرافيك يطيّر فكرتك في مدار جديد ويخطف أنظار العملاء من الثانية الأولى.',
     'page.motion.gallery_motion': 'معرض الموشن جرافيك',
     'page.motion.gallery_whiteboard': 'معرض الوايت بورد',
+    'page.montage.gallery':'معرض كولاج',
     
     // Page: Montage
     'page.montage.title': 'مونتـــــــاج',
@@ -238,6 +239,7 @@ const translations = {
     'page.motion.desc': 'We transform complex ideas into simple, attractive animations. Motion graphics fly your idea into a new orbit and capture customer attention from the first second.',
     'page.motion.gallery_motion': 'Motion Graphics Gallery',
     'page.motion.gallery_whiteboard': 'Whiteboard Gallery',
+    'page.montage.gallery':'Collage Gallery',
     
     // Page: Montage
     'page.montage.title': 'Montage',
