@@ -141,7 +141,7 @@ const DesignPage = () => {
           {graphicImages.map((item, index) => (
             <ScrollReveal key={`graphic-${index}`} delay={index * 0.1}>
               <div 
-                className="glowing-border-box aspect-[2/3] group"
+                className="glowing-border-box aspect-[2/2.5] group"
                 style={{ '--glow-color': borderColors[(index + 1) % borderColors.length] }}
               >
                  <div className="w-full h-full rounded-[2rem] overflow-hidden relative z-10">
