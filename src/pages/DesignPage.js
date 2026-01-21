@@ -5,16 +5,20 @@ import ScrollReveal from '../components/ScrollReveal';
 // عينات من أعمال التصميم
 const brandingImages = [
   {
-    src: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768954569/Artboard_7_htbfwd.jpg",
+    src: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769009712/design_hook_ehqp2r.png",
     link: "https://drive.google.com/drive/u/0/folders/1PkhIhaAEiMC4dKLdiqY9aalVzA8HZGAP" 
   },
   {
-    src: "https://images.unsplash.com/photo-1572044162444-ad60f128bde2?q=80&w=800&auto=format&fit=crop",
-    link: "#"
+    src: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769009712/design_galaxy_fw50ni.png",
+    link: "https://drive.google.com/drive/u/0/folders/1PkhIhaAEiMC4dKLdiqY9aalVzA8HZGAP"
+  },
+   {
+    src: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769009711/design_dhai_lak0en.png",
+    link: "https://drive.google.com/drive/u/0/folders/1PkhIhaAEiMC4dKLdiqY9aalVzA8HZGAP"
   },
   {
-    src: "https://images.unsplash.com/photo-1541462608141-ad60f128bde2?q=80&w=800&auto=format&fit=crop",
-    link: "#"
+    src: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769009710/design_d_asmaa_t4at5p.png",
+    link: "https://drive.google.com/drive/u/0/folders/1PkhIhaAEiMC4dKLdiqY9aalVzA8HZGAP"
   }
 ];
 
