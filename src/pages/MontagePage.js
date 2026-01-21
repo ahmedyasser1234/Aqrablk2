@@ -13,10 +13,13 @@ const verticalMontageVideos = [
 
 // قائمة فيديوهات المونتاج العرضي
 const horizontalMontageVideos = [
+  "x92XEpVqeo4",
   "OF2HItDjrFA",
-  "VtiITVEEMcw",
-  "r9P6A24-MnI",
-  "GnU8Zt5mBVw"
+  "NgwymX-GIqI",
+  "yVrXzR_89a4",
+  "-6iLsXGn8BE",
+  "GuzsLnfPz48",
+  "QFd8La5hBEs"
 ];
 
 // مصفوفة الألوان للتنويع (بنفسجي، أزرق، وردي)
