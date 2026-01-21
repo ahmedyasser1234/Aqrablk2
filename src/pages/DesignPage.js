@@ -30,6 +30,18 @@ const graphicImages = [
   {
     src: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768954614/%D8%A7%D9%84%D8%A8%D9%88%D8%B3%D8%AA-02_b15blm.jpg",
     link: "https://drive.google.com/drive/u/0/folders/1PkhIhaAEiMC4dKLdiqY9aalVzA8HZGAP"
+  },
+  {
+    src: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768955108/002_w1pz7m.jpg",
+    link: "https://drive.google.com/drive/u/0/folders/1PkhIhaAEiMC4dKLdiqY9aalVzA8HZGAP" 
+  },
+  {
+    src: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768955493/%D8%A8%D8%B7%D8%A7%D9%82%D8%A7%D8%AA_%D8%A7%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9_%D8%B5%D9%8A%D8%A7%D9%86%D8%A9_%D9%88%D8%AA%D9%86%D8%B8%D9%8A%D9%81_ayumhy.jpg",
+    link: "https://drive.google.com/drive/u/0/folders/1PkhIhaAEiMC4dKLdiqY9aalVzA8HZGAP"
+  },
+  {
+    src: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768955830/%D8%A7%D8%B9%D9%84%D8%A7%D9%86_%D8%B9%D8%B2%D9%85%D9%8A_%D9%87%D8%AA%D8%AC%D9%85%D8%AF%D9%87%D8%A7_tmtx6s.jpg",
+    link: "https://drive.google.com/drive/u/0/folders/1PkhIhaAEiMC4dKLdiqY9aalVzA8HZGAP"
   }
 ];
 
