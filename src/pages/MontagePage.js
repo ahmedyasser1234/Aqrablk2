@@ -4,11 +4,13 @@ import ScrollReveal from '../components/ScrollReveal';
 
 // قائمة فيديوهات المونتاج الطولي (Shorts)
 const verticalMontageVideos = [
-  "kImgYtodqOk",
   "6i4Tpocv5C8",
-  "rPMTC9LNaVc",
-  "OPky00oP48o",
-  "uFrh0QbAfBw"
+   "NgwymX-GIqI",
+  "yVrXzR_89a4",
+  "-6iLsXGn8BE",
+  "GuzsLnfPz48",
+  "QFd8La5hBEs",
+  "zbp2E5Ocbpo"
 ];
 
 // قائمة فيديوهات المونتاج العرضي
