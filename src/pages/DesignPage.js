@@ -5,8 +5,8 @@ import ScrollReveal from '../components/ScrollReveal';
 // عينات من أعمال التصميم
 const brandingImages = [
   {
-    src: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop",
-    link: "#" 
+    src: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768954569/Artboard_7_htbfwd.jpg",
+    link: "https://drive.google.com/drive/u/0/folders/1PkhIhaAEiMC4dKLdiqY9aalVzA8HZGAP" 
   },
   {
     src: "https://images.unsplash.com/photo-1572044162444-ad60f128bde2?q=80&w=800&auto=format&fit=crop",
@@ -20,16 +20,16 @@ const brandingImages = [
 
 const graphicImages = [
   {
-    src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop",
-    link: "#" 
+    src: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768954658/%D8%A7%D9%84%D8%A7%D9%88_%D9%84-04_iqdx2j.jpg",
+    link: "https://drive.google.com/drive/u/0/folders/1PkhIhaAEiMC4dKLdiqY9aalVzA8HZGAP" 
   },
   {
-    src: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop",
-    link: "#"
+    src: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768954569/Artboard_7_htbfwd.jpg",
+    link: "https://drive.google.com/drive/u/0/folders/1PkhIhaAEiMC4dKLdiqY9aalVzA8HZGAP"
   },
   {
-    src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop",
-    link: "#"
+    src: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768954614/%D8%A7%D9%84%D8%A8%D9%88%D8%B3%D8%AA-02_b15blm.jpg",
+    link: "https://drive.google.com/drive/u/0/folders/1PkhIhaAEiMC4dKLdiqY9aalVzA8HZGAP"
   }
 ];
 
