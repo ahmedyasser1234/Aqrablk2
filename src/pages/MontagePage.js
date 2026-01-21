@@ -13,7 +13,6 @@ const verticalMontageVideos = [
 
 // قائمة فيديوهات المونتاج العرضي
 const horizontalMontageVideos = [
-  "CFC9RlT4iag",
   "OF2HItDjrFA",
   "VtiITVEEMcw",
   "r9P6A24-MnI",
