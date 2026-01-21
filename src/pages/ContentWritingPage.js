@@ -4,9 +4,14 @@ import ScrollReveal from '../components/ScrollReveal';
 
 // فيديوهات نماذج أعمال كتابة المحتوى (سكريبتات، إعلانات، إلخ)
 const contentVideos = [
-  "0NgXkHQTt4U",
+  "jX8rBu-4Z2U",
   "k9M60YJJ3iE",
-  "m2mdBK91kQY"
+  "OF2HItDjrFA",
+  "3PFLbXvWNF4",
+  "UTOu0NEx4yE",
+  "ZF1a40JkekQ",
+  "NMe42TEOdoc",
+  "JxiqxiCEk-g"
 ];
 
 // ألوان التوهج (أزرق، بنفسجي، سماوي)
