@@ -44,7 +44,7 @@ const Footer = () => {
               </svg>
             </div>
             <div className="flex items-center gap-2 md:gap-3 group mt-0.5">
-              <a href="mailto:info@aqrablik.com" className="hover:text-blue-400 transition-colors text-xs md:text-lg lowercase order-1">info@aqrablik.com</a>
+              <a href="mailto:info@aqrablkmedia.com" className="hover:text-blue-400 transition-colors text-xs md:text-lg lowercase order-1">info@aqrablik.com</a>
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5 text-blue-400 opacity-70 group-hover:opacity-100 transition-opacity order-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
