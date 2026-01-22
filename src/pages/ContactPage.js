@@ -14,6 +14,7 @@ const ContactPage = () => {
     service: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -22,17 +23,83 @@ const ContactPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  // دالة لفتح تطبيق الهاتف للاتصال
+  const handlePhoneClick = (phoneNumber) => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
+
+  // دالة لفتح تطبيق البريد لإرسال رسالة
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:info@aqrablk.com';
+  };
+
+  // دالة إرسال الفورم إلى الإيميل
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert(t('page.contact.success_msg'));
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
+    setIsSubmitting(true);
+
+    try {
+      // هنا ترسل البيانات إلى السيرفر الخاص بك
+      const response = await fetch('https://your-domain.com/send-email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert(t('page.contact.success_msg'));
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        alert('حدث خطأ أثناء الإرسال. حاول مرة أخرى.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('حدث خطأ في الاتصال.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // بديل: استخدام خدمة Formspree إذا لم يكن لديك سيرفر
+  const handleSubmitWithFormspree = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // استبدل YOUR_FORM_ID بـ ID الخاص بك من formspree
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert(t('page.contact.success_msg'));
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        alert('حدث خطأ أثناء الإرسال.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const services = [
@@ -53,9 +120,15 @@ const ContactPage = () => {
           overflow: hidden;
           z-index: 0;
           border-radius: 2rem;
-          /* تأثير التوهج الثابت */
           box-shadow: 0 0 30px -5px var(--glow-color);
           border: 1px solid var(--glow-color);
+        }
+        .clickable-item {
+          cursor: pointer;
+          transition: transform 0.2s;
+        }
+        .clickable-item:hover {
+          transform: scale(1.02);
         }
       `}</style>
       <section className="max-w-7xl mx-auto">
@@ -99,8 +172,20 @@ const ContactPage = () => {
                     </div>
                     <div className={`flex-grow ${language === 'ar' ? 'text-right' : 'text-left'}`}>
                       <p className="text-gray-400 text-sm mb-1 uppercase tracking-widest">{t('page.contact.phone')}</p>
-                      <p className="text-xl md:text-2xl font-bold text-white hover:text-blue-400 transition-colors cursor-pointer" dir="ltr">01099822822</p>
-                      <p className="text-xl md:text-2xl font-bold text-white hover:text-blue-400 transition-colors cursor-pointer" dir="ltr">01014700317</p>
+                      <p 
+                        className="text-xl md:text-2xl font-bold text-white hover:text-blue-400 transition-colors cursor-pointer clickable-item"
+                        dir="ltr"
+                        onClick={() => handlePhoneClick('01099822822')}
+                      >
+                        01099822822
+                      </p>
+                      <p 
+                        className="text-xl md:text-2xl font-bold text-white hover:text-blue-400 transition-colors cursor-pointer clickable-item"
+                        dir="ltr"
+                        onClick={() => handlePhoneClick('01014700317')}
+                      >
+                        01014700317
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -112,7 +197,10 @@ const ContactPage = () => {
                   className="glowing-border-box"
                   style={{ '--glow-color': borderColors[1] }}
                 >
-                  <div className={`relative z-10 flex items-center gap-4 md:gap-6 bg-[#080911]/80 backdrop-blur-sm p-6 rounded-[2rem] border border-white/5 hover:bg-white/5 transition-all ${language === 'en' ? 'flex-row' : 'flex-row-reverse'}`}>
+                  <div 
+                    className={`relative z-10 flex items-center gap-4 md:gap-6 bg-[#080911]/80 backdrop-blur-sm p-6 rounded-[2rem] border border-white/5 hover:bg-white/5 transition-all ${language === 'en' ? 'flex-row' : 'flex-row-reverse'} clickable-item`}
+                    onClick={handleEmailClick}
+                  >
                     <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-purple-500/20 flex items-center justify-center flex-shrink-0">
                       <svg className="w-7 h-7 md:w-8 md:h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -120,7 +208,9 @@ const ContactPage = () => {
                     </div>
                     <div className={`flex-grow ${language === 'ar' ? 'text-right' : 'text-left'}`}>
                       <p className="text-gray-400 text-sm mb-1 uppercase tracking-widest">{t('page.contact.email')}</p>
-                      <p className="text-xl md:text-2xl font-bold text-white break-all hover:text-purple-400 transition-colors cursor-pointer">info@aqrablkmedia.com</p>
+                      <p className="text-xl md:text-2xl font-bold text-white break-all hover:text-purple-400 transition-colors">
+                        info@aqrablk.com
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -246,9 +336,10 @@ const ContactPage = () => {
               <ScrollReveal delay={0.6} direction={language === 'ar' ? 'left' : 'right'}>
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-black hover:shadow-lg hover:shadow-blue-500/30 transition-all text-xl"
+                  disabled={isSubmitting}
+                  className={`w-full px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-black hover:shadow-lg hover:shadow-blue-500/30 transition-all text-xl ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
-                  {t('page.contact.form_submit')}
+                  {isSubmitting ? t('page.contact.sending') : t('page.contact.form_submit')}
                 </button>
               </ScrollReveal>
             </form>
