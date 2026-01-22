@@ -1,24 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
   const { t, language } = useLanguage();
-  
+
   return (
-    <footer className="relative z-[20] w-full min-h-[109vh] flex items-end pb-12 px-10 md:px-20 overflow-hidden">
+    <footer className="relative z-[20] w-full min-h-[70vh] md:min-h-[109vh] flex items-end pb-10 px-6 md:px-20 overflow-hidden">
       
+      {/* الخلفية الفضائية */}
       <div className="absolute inset-0 z-0">
         <img 
           src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686133/footer_cz659n.png" 
           alt="Astronaut on Moon" 
-          className={`w-full h-full object-cover object-bottom opacity-100 ${language === 'en' ? 'scale-x-[-1]' : ''}`}
+          className={`w-full h-full object-contain md:object-cover object-bottom opacity-100 ${language === 'en' ? 'scale-x-[-1]' : ''}`}
+          style={{ objectPosition: 'center bottom' }}
           onError={(e) => { e.target.style.display = 'none'; }}
         />
-        <div className="absolute inset-0  via-transparent to-transparent opacity-90 h-64"></div>
+        <div className="absolute inset-0 via-transparent to-transparent opacity-90 h-64"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-end gap-10 md:gap-0">
+      {/* المحتوى */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-center items-center gap-8 md:flex-row md:justify-between md:items-end md:gap-0">
         
         {/* معلومات التواصل */}
         <div className={`w-full md:w-1/3 flex flex-col items-center gap-2 order-2 ${
@@ -52,20 +54,18 @@ const Footer = () => {
 
         {/* الشعار والحقوق */}
         <div className="w-full md:w-1/3 flex flex-col items-center justify-center gap-3 md:gap-4 text-center order-3 md:order-2">
-          <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686064/Asset_3_ypwlqu.png" alt="Aqrablik Media" className="h-14 md:h-20 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
+          <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686064/Asset_3_ypwlqu.png" alt="Aqrablik Media" className="h-10 md:h-20 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
           <div className="opacity-60 text-[10px] md:text-sm tracking-widest text-white/80">
             <p>© {new Date().getFullYear()} {t('footer.rights')}</p>
           </div>
         </div>
 
-        {/* الروابط - تم إضافة hidden لإخفائها في الموبايل و md:flex لإظهارها في الشاشات الكبيرة */}
-        <div className={`hidden md:flex w-full md:w-1/3 flex-col items-center gap-2 md:gap-3 order-1 ${
-          language === 'ar' ? 'md:order-1 md:items-start md:text-start' : 'md:order-3 md:items-end md:text-end'
-        }`}>
-          <Link to="/" className="text-lg md:text-2xl font-bold text-white hover:text-blue-400 transition-all glow-text">{t('nav.home')}</Link>
-          <Link to="/services" className="text-lg md:text-2xl font-bold text-white hover:text-blue-400 transition-all glow-text">{t('nav.services')}</Link>
-          <Link to="/about" className="text-lg md:text-2xl font-bold text-white hover:text-blue-400 transition-all glow-text">{t('nav.about')}</Link>
-          <Link to="/contact" className="text-lg md:text-2xl font-bold text-white hover:text-blue-400 transition-all glow-text">{t('nav.contact')}</Link>
+        {/* الروابط - تظهر فقط في الديسكتوب */}
+        <div className="hidden md:flex w-full md:w-1/3 flex-col items-center gap-2 md:gap-3 order-1">
+          <a href="/" className="text-lg md:text-2xl font-bold text-white hover:text-blue-400 transition-all glow-text">{t('nav.home')}</a>
+          <a href="/services" className="text-lg md:text-2xl font-bold text-white hover:text-blue-400 transition-all glow-text">{t('nav.services')}</a>
+          <a href="/about" className="text-lg md:text-2xl font-bold text-white hover:text-blue-400 transition-all glow-text">{t('nav.about')}</a>
+          <a href="/contact" className="text-lg md:text-2xl font-bold text-white hover:text-blue-400 transition-all glow-text">{t('nav.contact')}</a>
         </div>
       </div>
     </footer>
