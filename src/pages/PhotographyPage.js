@@ -11,9 +11,14 @@ const btsVideos = [
 
 // صور نماذج للتصوير
 const photoSessions = [
-  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769018129/IMG_2974_-_Copy_cw7vqw.png",
-  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769018135/IMG_3378_kzvqai.png",
-  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769018136/IMG_2951_-_Copy_yex95j.png",
+  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769097096/IMG_2974_-_Copy_uzr5ch.png",
+  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769097098/IMG_2951_-_Copy_l8batw.png",
+  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769097102/IMG_3378_elyv3j.png",
+  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769097103/IMG_3440_evyldo.png",
+  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769097107/IMG_3016_wyrtwv.png",
+  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769097107/IMG_3421_hxcxk7.png",
+  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769097119/IMG_3197_-_Copy_zzpiqg.png",
+  "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769097113/IMG_3134_l0llkc.png",
 ];
 
 // مصفوفة الألوان للتنويع (أزرق، بنفسجي، تركواز)
