@@ -15,6 +15,7 @@ const ContactPage = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -33,22 +34,30 @@ const ContactPage = () => {
     window.location.href = 'mailto:info@aqrablk.com';
   };
 
-  // دالة إرسال الفورم إلى الإيميل
+  // دالة إرسال الفورم مع Netlify Forms
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('sending');
+
+    // قم بتحويل البيانات إلى FormData
+    const formDataToSend = new FormData();
+    formDataToSend.append('form-name', 'contact-form'); // مهم جدًا: يجب أن يكون نفس اسم الفورم
+    Object.keys(formData).forEach(key => {
+      formDataToSend.append(key, formData[key]);
+    });
 
     try {
-      // هنا ترسل البيانات إلى السيرفر الخاص بك
-      const response = await fetch('https://your-domain.com/send-email.php', {
+      const response = await fetch('/', {
         method: 'POST',
+        body: formDataToSend,
         headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
+          'Accept': 'application/json'
+        }
       });
 
       if (response.ok) {
+        setSubmitStatus('success');
         alert(t('page.contact.success_msg'));
         setFormData({
           name: '',
@@ -57,46 +66,17 @@ const ContactPage = () => {
           service: '',
           message: ''
         });
+        
+        // إعادة تعيين الحالة بعد 3 ثواني
+        setTimeout(() => setSubmitStatus(''), 3000);
       } else {
+        setSubmitStatus('error');
         alert('حدث خطأ أثناء الإرسال. حاول مرة أخرى.');
       }
     } catch (error) {
       console.error('Error:', error);
+      setSubmitStatus('error');
       alert('حدث خطأ في الاتصال.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  // بديل: استخدام خدمة Formspree إذا لم يكن لديك سيرفر
-  const handleSubmitWithFormspree = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // استبدل YOUR_FORM_ID بـ ID الخاص بك من formspree
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
-
-      if (response.ok) {
-        alert(t('page.contact.success_msg'));
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          service: '',
-          message: ''
-        });
-      } else {
-        alert('حدث خطأ أثناء الإرسال.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -129,6 +109,22 @@ const ContactPage = () => {
         }
         .clickable-item:hover {
           transform: scale(1.02);
+        }
+        .status-success {
+          color: #22c55e;
+          background: rgba(34, 197, 94, 0.1);
+          padding: 10px;
+          border-radius: 10px;
+          text-align: center;
+          margin-top: 10px;
+        }
+        .status-error {
+          color: #ef4444;
+          background: rgba(239, 68, 68, 0.1);
+          padding: 10px;
+          border-radius: 10px;
+          text-align: center;
+          margin-top: 10px;
         }
       `}</style>
       <section className="max-w-7xl mx-auto">
@@ -268,7 +264,16 @@ const ContactPage = () => {
               </h2>
             </ScrollReveal>
             
-            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+            {/* إضافة input مخفي لاسم الفورم - مهم جدًا لـ Netlify */}
+            <form 
+              name="contact-form" 
+              method="POST" 
+              data-netlify="true"
+              onSubmit={handleSubmit} 
+              className="space-y-4 md:space-y-6"
+            >
+              <input type="hidden" name="form-name" value="contact-form" />
+              
               <ScrollReveal delay={0.1} direction={language === 'ar' ? 'left' : 'right'}>
                 <input
                   type="text"
@@ -342,6 +347,18 @@ const ContactPage = () => {
                   {isSubmitting ? t('page.contact.sending') : t('page.contact.form_submit')}
                 </button>
               </ScrollReveal>
+
+              {submitStatus === 'success' && (
+                <div className="status-success">
+                   تم إرسال رسالتك بنجاح!
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="status-error">
+                   حدث خطأ أثناء الإرسال. حاول مرة أخرى.
+                </div>
+              )}
             </form>
           </div>
         </div>
