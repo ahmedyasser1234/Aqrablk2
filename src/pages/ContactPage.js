@@ -120,7 +120,7 @@ const ContactPage = () => {
                     </div>
                     <div className={`flex-grow ${language === 'ar' ? 'text-right' : 'text-left'}`}>
                       <p className="text-gray-400 text-sm mb-1 uppercase tracking-widest">{t('page.contact.email')}</p>
-                      <p className="text-xl md:text-2xl font-bold text-white break-all hover:text-purple-400 transition-colors cursor-pointer">info@aqrablk.com</p>
+                      <p className="text-xl md:text-2xl font-bold text-white break-all hover:text-purple-400 transition-colors cursor-pointer">info@aqrablkmedia.com</p>
                     </div>
                   </div>
                 </div>
