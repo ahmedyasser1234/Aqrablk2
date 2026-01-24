@@ -10,7 +10,7 @@ const webProjects = [
 ];
 
 const shopifyProjects = [
-  { image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop", url: "#" },
+  { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769283214/dhai_store_abbmdc.png", url: "Dhai-store.com" },
   { image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", url: "#" },
   { image: "https://images.unsplash.com/photo-1523474253046-2cd2c98a697b?q=80&w=800&auto=format&fit=crop", url: "#" }
 ];
