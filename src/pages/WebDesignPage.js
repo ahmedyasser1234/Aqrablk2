@@ -15,7 +15,7 @@ const shopifyProjects = [
   { image: "https://images.unsplash.com/photo-1523474253046-2cd2c98a697b?q=80&w=800&auto=format&fit=crop", url: "#" }
 ];
 
-const borderColors = ['#a855f7', '#6366f1', '#ec4899'];
+const borderColors = ['#a855f7', '#6366f1', '#a855f7'];
 
 const WebDesignPage = () => {
   const { t, language } = useLanguage();
