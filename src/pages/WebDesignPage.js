@@ -3,10 +3,10 @@ import { useLanguage } from '../context/LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
 
 const webProjects = [
-  { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686440/arct_o02dz4.png", url: "https://architectegypt.com" },
+  { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769281547/mock_3_bn86ur.png", url: "https://architectegypt.com" },
   { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769278001/galaxy_mockup_tcy5oy.png", url: "https://galaxyrepairuae.com" },
-  { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686455/sharik_mwmenl.png", url: "https://sharke1.netlify.app" },
-  { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686457/shelter_i6bufo.png", url: "https://shelterhouseofcheese.com" }
+  { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769281553/mock_2_fudft9.png", url: "https://shelterhouseofcheese.com" },
+  { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686455/sharik_mwmenl.png", url: "https://sharke1.netlify.app" }
 ];
 
 const shopifyProjects = [
