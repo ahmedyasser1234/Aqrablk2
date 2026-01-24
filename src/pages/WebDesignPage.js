@@ -11,6 +11,8 @@ const webProjects = [
 
 const shopifyProjects = [
   { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769283214/dhai_store_abbmdc.png", url: "https://dhai-store.com/" },
+  { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769284174/shopy_2_vvlkjf.png", url: "https://fluffpuff.store/" },
+
 ];
 
 const borderColors = ['#a855f7', '#6366f1', '#a855f7'];
