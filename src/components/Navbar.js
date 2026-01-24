@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const triggerCrack = () => {
     try {
-      const audio = new Audio('/audio/glass-break.mp3');      audio.volume = 0.4;
+      const audio = new Audio('/audio/glass-break2.mp3');      audio.volume = 0.4;
       audio.currentTime = 0;
       audio.play().catch(() => {});
     } catch (e) {
