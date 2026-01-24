@@ -1,11 +1,10 @@
 import React from 'react';
-import { useLanguage } from '../context/LanguageContext'; // تأكد من المسار الصحيح
+import { useLanguage } from '../context/LanguageContext';   
 import ScrollReveal from '../components/ScrollReveal';
 
-// 1. بيانات المشاريع
 const webProjects = [
   { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686440/arct_o02dz4.png", url: "https://architectegypt.com" },
-  { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686454/glax_asgtg5.png", url: "https://galaxyrepairuae.com" },
+  { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1769278001/galaxy_mockup_tcy5oy.png", url: "https://galaxyrepairuae.com" },
   { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686455/sharik_mwmenl.png", url: "https://sharke1.netlify.app" },
   { image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686457/shelter_i6bufo.png", url: "https://shelterhouseofcheese.com" }
 ];
@@ -16,7 +15,6 @@ const shopifyProjects = [
   { image: "https://images.unsplash.com/photo-1523474253046-2cd2c98a697b?q=80&w=800&auto=format&fit=crop", url: "#" }
 ];
 
-// 2. ألوان التوهج
 const borderColors = ['#a855f7', '#6366f1', '#ec4899'];
 
 const WebDesignPage = () => {
